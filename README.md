@@ -14,12 +14,12 @@ Chào mừng bạn đến với tài liệu học tập của khóa học **Unit
 ## 🗂️ Danh sách tài liệu học tập
 Bạn có thể đọc tài liệu trực tiếp trên GitHub hoặc mở bằng ứng dụng [Obsidian](https://obsidian.md/) để có trải nghiệm đọc tốt nhất.
 
-1. 📋 **[Đề cương chi tiết (Course Outline)](file:///d:/BasicUnity/Course Outline.md)**: Tổng quan lộ trình 10 buổi học, các yêu cầu chuẩn bị và phần mềm cần cài đặt.
-2. 🛠️ **[Session 1 - Editor, Components, Game Objects](file:///d:/BasicUnity/Session 1 - Editor, Components, Game Objects.md)**:
+1. 📋 **[Đề cương chi tiết (Course Outline)](Course%20Outline.md)**: Tổng quan lộ trình 10 buổi học, các yêu cầu chuẩn bị và phần mềm cần cài đặt.
+2. 🛠️ **[Session 1 - Editor, Components, Game Objects](Session%201%20-%20Editor,%20Components,%20Game%20Objects.md)**:
    * Giới thiệu giao diện Unity Editor.
    * Khái niệm cốt lõi: GameObject, Component, Transform và Scene.
    * Hướng dẫn thiết lập Git & `.gitignore` chuẩn cho Unity.
-3. 💻 **[Session 2 - First Script, MonoBehaviour, New Input System](file:///d:/BasicUnity/Session 2 - First Script, MonoBehaviour, New Input System.md)**:
+3. 💻 **[Session 2 - First Script, MonoBehaviour, New Input System](Session%202%20-%20First%20Script,%20MonoBehaviour,%20New%20Input%20System.md)**:
    * Cách tạo Script đầu tiên và cấu trúc của một `MonoBehaviour`.
    * Vòng đời của Script (Event Functions: Awake, Start, Update, FixedUpdate,...).
    * Làm quen với thuộc tính `[SerializeField]` và hiển thị biến lên Inspector.
@@ -38,4 +38,4 @@ Bạn có thể đọc tài liệu trực tiếp trên GitHub hoặc mở bằng
 
 ## 📝 Lưu ý khi sử dụng Git & Obsidian
 * Thư mục cấu hình cá nhân `.obsidian/` đã được cấu hình trong `.gitignore` để không bị đẩy lên GitHub nhằm tránh xung đột cấu hình.
-* Các hình ảnh minh họa được lưu tại thư mục [Images](file:///d:/BasicUnity/Images) sử dụng định dạng liên kết Markdown chuẩn, giúp hiển thị mượt mà trên cả GitHub lẫn Obsidian.
+* Các hình ảnh minh họa được lưu tại thư mục [Images](Images) sử dụng định dạng liên kết Markdown chuẩn, giúp hiển thị mượt mà trên cả GitHub lẫn Obsidian.
