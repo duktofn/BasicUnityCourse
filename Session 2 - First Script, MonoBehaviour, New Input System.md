@@ -175,7 +175,7 @@ OnDisable (có thể gọi lại nhiều lần — và CŨNG được gọi ngay
 OnDestroy (1 lần, chỉ gọi nếu object đã từng active)
 ```
 
-Một số lưu ý quan trọng khi diễn giải sơ đồ trên cho học viên:
+Một số lưu ý quan trọng khi diễn giải sơ đồ trên:
 
 - `Awake` (toàn bộ object trong scene) → `OnEnable` (toàn bộ object) → `Start` (toàn bộ object) là thứ tự được đảm bảo theo từng "lớp" — tức mọi `Awake` chạy xong rồi mới tới `OnEnable`, mọi `OnEnable` chạy xong rồi mới tới `Start`. Riêng `Unity.SceneManagement.SceneManager.sceneLoaded` event được raise sau `OnEnable` nhưng trước `Start` của toàn bộ object trong scene.
 - Trong vòng lặp mỗi frame, thứ tự `FixedUpdate → Update → LateUpdate` được đảm bảo cho **cùng một object**, nhưng Unity **không đảm bảo thứ tự** gọi cùng một hàm (ví dụ `Update`) giữa các **instance khác nhau** của cùng một script hoặc giữa các object khác nhau — kể cả giữa object cha và object con. Muốn kiểm soát thứ tự này, dùng [Script Execution Order](https://docs.unity3d.com/6000.3/Documentation/Manual/script-execution-order.html) trong Project Settings.
