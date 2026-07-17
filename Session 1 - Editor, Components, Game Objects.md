@@ -73,13 +73,16 @@ Cách thêm/xóa component:
 - Qua menu `Component` trong Inspector (thủ công).
 - Qua script bằng `AddComponent<T>()` để thêm tại runtime, và `Object.Destroy()` trên component đó để gỡ bỏ. Cách lấy reference đến component khác gắn trên cùng GameObject dùng `GetComponent<T>()`.
 
-Học viên chưa cần viết code ở buổi này, nhưng nên biết trước những API name này vì sẽ gặp lại ngay ở buổi 2.
+Nếu có ai cần biết về các Components phổ biến trong Unity có thể tham khảo (tiếng Anh): 
+[134 Unity Components EXPLAINED in Less than 30 Minutes](https://www.youtube.com/watch?v=2LSXHtl0Mss&list=PLYycu6ur98tKGGq5uJvpLbTmo1r1--cpX&index=73&pp=iAQB)
 
 ---
 
 ## 4. Transform — component đặc biệt
 
-Tham khảo: [Transform scripting reference](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Transform.html)
+Tham khảo: 
+- Unity Official Document: [Transform scripting reference](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Transform.html)
+- Youtube: [What is a Transform (Unity Tutorial for Beginners - Position, Rotation, Scale, Vector3)](https://youtu.be/8pC3SE5PIzY?si=Uf5N9RIxMxYZTNo6)
 
 Transform lưu trữ và cho phép thao tác Position, Rotation, Scale của object. Một điểm quan trọng: Transform có thể có **parent**, cho phép áp dụng Position/Rotation/Scale theo dạng phân cấp (hierarchy) — tức là di chuyển object cha sẽ kéo theo toàn bộ object con di chuyển cùng. 
 
