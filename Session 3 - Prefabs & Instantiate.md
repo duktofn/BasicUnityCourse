@@ -74,17 +74,14 @@ So với tự dựng GameObject từ code bằng `new GameObject()` rồi gọi 
 
 **Cú pháp cơ bản:**
 
-```csharp
-public class EnemySpawner : MonoBehaviour
-{
-    public GameObject enemyPrefab; // kéo prefab vào field này trên Inspector
+**Instantiate**
 
-    void Start()
-    {
-        Instantiate(enemyPrefab);
-    }
-}
+```csharp
+Instantiate(enemyPrefab);
 ```
+
+Nếu chỉ Instantiate một tham số là một prefab thì nó sẽ spawn tại vị trí của đang được set trong prefabs (theo World Space).
+Nếu Instantiate một Game Object đang tồn tại trong scene thì nó sẽ được copy và sinh ra đúng tại vị trí của Game Object hiện thời.
 
 **Instantiate kèm vị trí và rotation:**
 
@@ -94,13 +91,16 @@ Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 
 `Quaternion.identity` nghĩa là không xoay (rotation mặc định). Nếu không truyền position/rotation, object mới sẽ dùng đúng position/rotation đang lưu sẵn trong prefab asset.
 
-**Instantiate kèm parent (overload 4 tham số):**
+**Instantiate kèm parent:**
 
 ```csharp
-Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity, transform);
+Instantiate(enemyPrefab, transform);
 ```
 
-Tham số cuối chỉ định object mới sinh ra sẽ là **con** của transform truyền vào — hữu ích khi muốn gom các object cùng loại vào chung một GameObject cha trong Hierarchy cho gọn.
+Tham số cuối chỉ định object mới sinh ra sẽ là **con** của transform truyền vào, và transform của object con lúc này sẽ theo Local Space với gốc tọa độ là vị trí của Object cha của nó.
+Nếu không truyền theo vị trí xuất hiện thì nó sẽ mặc định spawn theo vị trí prefabs trong Local Space của Object cha.
+Nếu truyền cùng vị trí và góc quay thì nó sẽ được spawn với vị trí và góc quay trong Local Space của Object cha.
+
 
 ---
 
@@ -153,10 +153,10 @@ Vài điểm quan trọng cần phân biệt rõ:
 - Nếu object truyền vào là **GameObject** → toàn bộ GameObject, mọi component, và mọi GameObject con của nó bị huỷ cùng lúc.
 - Việc huỷ thật sự luôn được **hoãn tới cuối Update loop hiện tại**, nhưng chắc chắn xảy ra trước khi render frame đó — nên không thấy object "biến mất giữa chừng" một cách bất thường.
 - Với tham số delay `t`, đồng hồ đếm bắt đầu tính **ngay tại thời điểm gọi** `Destroy(obj, t)`, không phải từ lúc script bị disable hay huỷ sau đó.
-- `Destroy` an toàn khi gọi trên object đã bị huỷ hoặc đang null — không văng lỗi runtime.
+- `Destroy` an toàn khi gọi trên object đã bị huỷ hoặc đang null — không lỗi.
 - Nếu dùng delay, thời gian đó bị ảnh hưởng bởi `Time.timeScale` — game đang pause (`Time.timeScale = 0`) thì việc huỷ cũng bị hoãn theo tới khi thời gian chạy lại.
 
-⚠️ **WARNING — lỗi rất hay gặp ở người mới:** viết `Destroy(this)` bên trong một MonoBehaviour tưởng sẽ huỷ cả GameObject, nhưng thực chất `this` đang trỏ tới **script instance**, không phải GameObject — kết quả chỉ script đó bị gỡ khỏi GameObject, GameObject vẫn còn sống với các component khác. Muốn huỷ cả GameObject, phải gọi rõ `Destroy(gameObject)`.
+⚠️ **WARNING — lỗi rất hay gặp:** viết `Destroy(this)` bên trong một MonoBehaviour tưởng sẽ huỷ cả GameObject, nhưng thực chất `this` đang trỏ tới **script instance**, không phải GameObject — kết quả chỉ script đó bị gỡ khỏi GameObject, GameObject vẫn còn sống với các component khác. Muốn huỷ cả GameObject, phải gọi rõ `Destroy(gameObject)`.
 
 **DestroyImmediate — chỉ dùng trong Edit mode, không dùng lúc chạy game:**
 
